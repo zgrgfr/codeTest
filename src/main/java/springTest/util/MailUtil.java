@@ -1,9 +1,8 @@
-package util;
+package springTest.util;
 
 import java.util.Date;
 import java.util.Properties;
 
-import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.core.io.Resource;
