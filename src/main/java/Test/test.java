@@ -1,36 +1,49 @@
 package Test;
 import Test.ListNode;
 
-import java.util.Stack;
-import java.util.ArrayList;
+import javax.jnlp.IntegrationService;
+import java.util.*;
+
 /**
- * Created by guofengrui on 2017/7/3.
+ * 输入一个字符串,按字典序打印出该字符串中字符的所有排列。
+     * 例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
+ *
+ * Created by guofengrui on 2017/7/18.
  */
 public class test {
-    /**
-     * 输入一个链表，输出该链表中倒数第k个结点。
-     */
-    public ListNode FindKthToTail(ListNode head,int k) {
-        if (head == null || k == 0)
-            return null;
-        ListNode fast = head;
-        ListNode slow = head;
-        int i = 1;
-        while(i < k){
-            if(fast != null){
-                fast = fast.next;
-                i++;
-                if(fast == null){
-                    return null;
-                }
-            }
+    private static int getSum(int i, int j ){
+        int sum = 0;
+        while(i != 0){
+            sum += i%j;
+            i = i/j;
         }
-
-        while(fast.next!=null){
-            fast = fast.next;
-            slow = slow.next;
-        }
-        return slow;
+        return sum;
     }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int sizeA = scanner.nextInt();
+        int sizeB = scanner.nextInt();
+        int[] arrayA = new int[sizeA];
+        int[] arrayB = new int[sizeB];
+        Set<Integer> set = new HashSet<Integer>();
+        for(int i=0; i<sizeA ;i++){
+            arrayA[i] = scanner.nextInt();
+            set.add(arrayA[i]);
+        }
+        for(int i=0; i<sizeB ;i++){
+            arrayB[i] = scanner.nextInt();
+            set.add(arrayB[i]);
+        }
+        Integer[] result = new Integer[set.size()];
+        result = (Integer[])set.toArray(new Integer[set.size()]);
+        Arrays.sort(result);
+        String temp = "";
+        for (int i = 0; i < result.length; i++) {
+            temp += i;
+            if(i != result.length-1)
+                temp += " ";
+        }
+    }
+
 }
 
