@@ -20,29 +20,17 @@ public class test {
         return sum;
     }
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int sizeA = scanner.nextInt();
-        int sizeB = scanner.nextInt();
-        int[] arrayA = new int[sizeA];
-        int[] arrayB = new int[sizeB];
-        Set<Integer> set = new HashSet<Integer>();
-        for(int i=0; i<sizeA ;i++){
-            arrayA[i] = scanner.nextInt();
-            set.add(arrayA[i]);
+        for (double i = 2; i <=200 ; i++) {
+            boolean flag = true;
+            for(double j = 2;j<200; j++){
+                if(i%j == 0 && i != j){
+                    flag = false;
+                }
+            }
+            if (flag)
+                System.out.println(i);
         }
-        for(int i=0; i<sizeB ;i++){
-            arrayB[i] = scanner.nextInt();
-            set.add(arrayB[i]);
-        }
-        Integer[] result = new Integer[set.size()];
-        result = (Integer[])set.toArray(new Integer[set.size()]);
-        Arrays.sort(result);
-        String temp = "";
-        for (int i = 0; i < result.length; i++) {
-            temp += i;
-            if(i != result.length-1)
-                temp += " ";
-        }
+
     }
 
 }
